@@ -69,10 +69,6 @@
 		944A6E04299F2FBB0032C2E3 /* experimental in Resources */ = {isa = PBXBuildFile; fileRef = 944A6E02299F2FBB0032C2E3 /* experimental */; };
 		944A6E05299F2FBB0032C2E3 /* experimental in Resources */ = {isa = PBXBuildFile; fileRef = 944A6E02299F2FBB0032C2E3 /* experimental */; };
 		944A6E06299F2FBB0032C2E3 /* experimental in Resources */ = {isa = PBXBuildFile; fileRef = 944A6E02299F2FBB0032C2E3 /* experimental */; };
-		944A6E0E299F32070032C2E3 /* wizards in Resources */ = {isa = PBXBuildFile; fileRef = 944A6E0D299F32070032C2E3 /* wizards */; };
-		944A6E0F299F32070032C2E3 /* wizards in Resources */ = {isa = PBXBuildFile; fileRef = 944A6E0D299F32070032C2E3 /* wizards */; };
-		944A6E10299F32070032C2E3 /* wizards in Resources */ = {isa = PBXBuildFile; fileRef = 944A6E0D299F32070032C2E3 /* wizards */; };
-		944A6E11299F32070032C2E3 /* wizards in Resources */ = {isa = PBXBuildFile; fileRef = 944A6E0D299F32070032C2E3 /* wizards */; };
 		944A6E13299F39D30032C2E3 /* permission in Resources */ = {isa = PBXBuildFile; fileRef = 944A6E12299F39D30032C2E3 /* permission */; };
 		944A6E14299F39D30032C2E3 /* permission in Resources */ = {isa = PBXBuildFile; fileRef = 944A6E12299F39D30032C2E3 /* permission */; };
 		944A6E15299F39D30032C2E3 /* permission in Resources */ = {isa = PBXBuildFile; fileRef = 944A6E12299F39D30032C2E3 /* permission */; };
@@ -459,7 +455,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
-				LastUpgradeCheck = 1600;
+				LastUpgradeCheck = 1620;
 				TargetAttributes = {
 					941B03AE296FA90400CA291E = {
 						CreatedOnToolsVersion = 14.2;
@@ -679,6 +675,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -739,6 +736,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
