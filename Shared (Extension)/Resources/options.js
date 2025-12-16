@@ -179,9 +179,13 @@ Alpine.data('options', () => ({
         let newRelay = relayToAdd || this.newRelay;
         try {
             let url = new URL(newRelay);
-            if (url.protocol !== 'wss:') {
-                this.setUrlError('Must be a websocket url');
+            if (url.protocol !== 'wss:' && url.protocol !== 'ws:') {
+                this.setUrlError('Must be a websocket url (ws: or wss:)');
                 return;
+            }
+
+            if (url.protocol === 'ws:' && url.hostname !== '127.0.0.1') {
+                console.warn('Insecure websocket connection (ws:) not to 127.0.0.1 detected. This is not recommended for production.');
             }
             let urls = this.relays.map(v => v.url);
             if (urls.includes(url.href)) {
