@@ -795,7 +795,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = 5SD834TD9W;
+				DEVELOPMENT_TEAM = M684FYCYG6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "nostore Extension";
@@ -811,7 +811,7 @@
 					"-framework",
 					SafariServices,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = camp.ursus.nostore.Extension;
+				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.nostore.Extension;
 				PRODUCT_NAME = "Nostore Extension";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -826,7 +826,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = 5SD834TD9W;
+				DEVELOPMENT_TEAM = M684FYCYG6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "nostore Extension";
@@ -842,7 +842,7 @@
 					"-framework",
 					SafariServices,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = camp.ursus.nostore.Extension;
+				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.nostore.Extension;
 				PRODUCT_NAME = "Nostore Extension";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -861,7 +861,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = 5SD834TD9W;
+				DEVELOPMENT_TEAM = M684FYCYG6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (App)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Nostore;
@@ -883,7 +883,7 @@
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = camp.ursus.nostore;
+				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.nostore;
 				PRODUCT_NAME = Nostore;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -903,7 +903,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = 5SD834TD9W;
+				DEVELOPMENT_TEAM = M684FYCYG6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (App)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Nostore;
@@ -925,7 +925,7 @@
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = camp.ursus.nostore;
+				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.nostore;
 				PRODUCT_NAME = Nostore;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -944,7 +944,7 @@
 				CODE_SIGN_ENTITLEMENTS = "macOS (Extension)/nostore.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = 5SD834TD9W;
+				DEVELOPMENT_TEAM = M684FYCYG6;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
@@ -961,7 +961,7 @@
 					"-framework",
 					SafariServices,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = camp.ursus.nostore.Extension;
+				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.nostore.Extension;
 				PRODUCT_NAME = "Nostore Extension";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -976,7 +976,7 @@
 				CODE_SIGN_ENTITLEMENTS = "macOS (Extension)/nostore.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = 5SD834TD9W;
+				DEVELOPMENT_TEAM = M684FYCYG6;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
@@ -993,7 +993,7 @@
 					"-framework",
 					SafariServices,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = camp.ursus.nostore.Extension;
+				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.nostore.Extension;
 				PRODUCT_NAME = "Nostore Extension";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -1011,7 +1011,7 @@
 				CODE_SIGN_ENTITLEMENTS = "macOS (App)/nostore.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = 5SD834TD9W;
+				DEVELOPMENT_TEAM = M684FYCYG6;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Nostore--macOS--Info.plist";
@@ -1030,7 +1030,7 @@
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = camp.ursus.nostore;
+				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.nostore;
 				PRODUCT_NAME = Nostore;
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1047,7 +1047,7 @@
 				CODE_SIGN_ENTITLEMENTS = "macOS (App)/nostore.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = 5SD834TD9W;
+				DEVELOPMENT_TEAM = M684FYCYG6;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Nostore--macOS--Info.plist";
@@ -1066,7 +1066,7 @@
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = camp.ursus.nostore;
+				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.nostore;
 				PRODUCT_NAME = Nostore;
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
