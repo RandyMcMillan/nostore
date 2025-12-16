@@ -177,6 +177,7 @@ Alpine.data('options', () => ({
 
     async addRelay(relayToAdd = null) {
         let newRelay = relayToAdd || this.newRelay;
+        console.log('Attempting to add relay:', newRelay); // Added log
         try {
             let url = new URL(newRelay);
             if (url.protocol !== 'wss:' && url.protocol !== 'ws:') {
@@ -196,6 +197,7 @@ Alpine.data('options', () => ({
             await this.saveRelays();
             this.newRelay = '';
         } catch (error) {
+            console.error('Error adding relay:', error); // Added log
             this.setUrlError('Invalid websocket URL');
         }
     },
