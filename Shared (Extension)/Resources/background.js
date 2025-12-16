@@ -89,9 +89,6 @@ async function forceRelease() {
 }
 
 async function ask(uuid, { kind, host, payload }) {
-    await forceRelease(); // Clean up previous tab if it closed without cleaning itself up
-    prompt.release = await prompt.mutex.acquire();
-
     let mKind = kind === 'signEvent' ? `signEvent:${payload.kind}` : kind;
     let permission = await getPermission(host, mKind);
     if (permission === 'allow') {
@@ -102,15 +99,16 @@ async function ask(uuid, { kind, host, payload }) {
             remember: false,
             host,
         });
-        prompt.release();
         return;
     }
 
     if (permission === 'deny') {
         deny({ payload: uuid, origKind: kind, host });
-        prompt.release();
         return;
     }
+
+    await forceRelease(); // Clean up previous tab if it closed without cleaning itself up
+    prompt.release = await prompt.mutex.acquire();
 
     let qs = new URLSearchParams({
         uuid,
@@ -128,7 +126,8 @@ async function ask(uuid, { kind, host, payload }) {
 }
 
 function complete({ payload, origKind, event, remember, host }) {
-    sendResponse = validations[payload];
+    let sendResponse = validations[payload];
+    delete validations[payload];
 
     if (remember) {
         let mKind =
@@ -139,28 +138,27 @@ function complete({ payload, origKind, event, remember, host }) {
     if (sendResponse) {
         switch (origKind) {
             case 'getPubKey':
-                getPubKey().then(pk => {
-                    sendResponse(pk);
-                });
+                getPubKey().then(sendResponse);
                 break;
             case 'signEvent':
-                signEvent_(event, host).then(e => sendResponse(e));
+                signEvent_(event, host).then(sendResponse);
                 break;
             case 'nip04.encrypt':
-                nip04Encrypt(event).then(e => sendResponse(e));
+                nip04Encrypt(event).then(sendResponse);
                 break;
             case 'nip04.decrypt':
-                nip04Decrypt(event).then(e => sendResponse(e));
+                nip04Decrypt(event).then(sendResponse);
                 break;
             case 'getRelays':
-                getRelays().then(e => sendResponse(e));
+                getRelays().then(sendResponse);
                 break;
         }
     }
 }
 
 function deny({ origKind, host, payload, remember, event }) {
-    sendResponse = validations[payload];
+    let sendResponse = validations[payload];
+    delete validations[payload];
 
     if (remember) {
         let mKind =

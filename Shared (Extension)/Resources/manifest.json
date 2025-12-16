@@ -12,13 +12,12 @@
         "512": "images/icon-512.png"
     },
     "background": {
-        "page": "background.html",
-        "persistent": false
+        "service_worker": "background.js"
     },
     "content_scripts": [
         {
             "js": [
-                "content.build.js"
+                "build/content.js"
             ],
             "matches": [
                 "<all_urls>"

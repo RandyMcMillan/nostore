@@ -12,24 +12,22 @@ let watch =
 
 require('esbuild')
     .build({
-        entryPoints: {
-            'background.build': './Shared (Extension)/Resources/background.js',
-            'content.build': './Shared (Extension)/Resources/content.js',
-            'nostr.build': './Shared (Extension)/Resources/nostr.js',
-            'popup.build': './Shared (Extension)/Resources/popup.js',
-            'options.build': './Shared (Extension)/Resources/options.js',
-            'permission/permission.build':
-                './Shared (Extension)/Resources/permission/permission.js',
-            'experimental/experimental.build':
-                './Shared (Extension)/Resources/experimental/experimental.js',
-            'wizards/delegation/delegation.build':
-                './Shared (Extension)/Resources/wizards/delegation/delegation.js',
-            'event_history/event_history.build':
-                './Shared (Extension)/Resources/event_history/event_history.js',
-        },
+    entryPoints: [
+        'Shared (Extension)/Resources/content.js',
+        'Shared (Extension)/Resources/nostr.js',
+        'Shared (Extension)/Resources/popup.js',
+        'Shared (Extension)/Resources/options.js',
+        'Shared (Extension)/Resources/wizards/delegation/delegation.js',
+        'Shared (Extension)/Resources/experimental/experimental.js',
+        'Shared (Extension)/Resources/event_history/event_history.js',
+        'Shared (Extension)/Resources/alpine.js'
+    ],
+    outdir: 'Shared (Extension)/Resources/build',
+    allowOverwrite: true,
         outdir: './Shared (Extension)/Resources',
         sourcemap: 'inline',
         bundle: true,
+        inject: [],
         // minify: true,
         watch,
     })
