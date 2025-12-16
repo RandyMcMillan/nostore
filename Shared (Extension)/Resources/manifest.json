@@ -53,7 +53,7 @@
         }
     ],
     "content_security_policy": {
-        "extension_pages": "object-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; frame-src 'self'; font-src 'self'; media-src 'self'; child-src 'self';"
+        "extension_pages": "script-src 'self' 'unsafe-eval'; object-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; frame-src 'self'; font-src 'self'; media-src 'self'; child-src 'self';"
     },
     "browser_specific_settings": {
         "safari": {
