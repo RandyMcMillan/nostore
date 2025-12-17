@@ -78,3 +78,5 @@ iOSInjectionProject/
 node_modules/
 *.build.js
 Shared (Extension)/Resources/options.build.css
+
+.genkit
