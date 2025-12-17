@@ -18,7 +18,7 @@ struct GettingStartediPad: View {
                 .foregroundColor(.accentColor)
             Text("")
             Text("""
-Upon installation of the app, go to **Settings -> Apps -> Safari -> Extensions** and enable the **Nostash** extension. Then open Safari and look in the toolbar, where you will see the \(Image(systemName: "puzzlepiece.extension")) icon:
+Upon installation of the app, go to **Settings -> Apps -> Safari -> Extensions** and enable the **Gnostore** extension. Then open Safari and look in the toolbar, where you will see the \(Image(systemName: "puzzlepiece.extension")) icon:
 """)
                 .padding([.horizontal, .top], 20)
 
@@ -39,7 +39,7 @@ Upon installation of the app, go to **Settings -> Apps -> Safari -> Extensions**
                 .padding([.top])
 
             Text("""
-The **Nostash** logo is gray, indicating the extension is inactive for this site, and must be activated first. Click on the button, and give Nostash permission to access the current site. Now the Nostash logo will appear in color, and you can click it again to access the extension.
+The **Gnostore** logo is gray, indicating the extension is inactive for this site, and must be activated first. Click on the button, and give Gnostore permission to access the current site. Now the Gnostore logo will appear in color, and you can click it again to access the extension.
 """).multilineTextAlignment(.leading)
                 .padding([.horizontal, .top], 20)
             

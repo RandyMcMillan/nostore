@@ -11,7 +11,7 @@ struct MainView: View {
     var body: some View {
         NavigationStack {
             Image("bigicon").resizable().frame(width: 150.0, height: 150.0)
-            Text("Nostash").font(.title)
+            Text("Gnostore").font(.title)
             Text("A Safari Nostr Extension").font(.title2)
             NavigationLink("Privacy Policy") {
                 PrivacyPolicyView()
