@@ -15,9 +15,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "941B03C0296FA90400CA291E"
-               BuildableName = "Nostash.app"
-               BlueprintName = "gnostore (macOS)"
+               BlueprintIdentifier = "941B03AE296FA90400CA291E"
+               BuildableName = "gnostore.app"
+               BlueprintName = "gnostore (iOS)"
                ReferencedContainer = "container:gnostore.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -44,9 +44,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "941B03C0296FA90400CA291E"
-            BuildableName = "Nostash.app"
-            BlueprintName = "gnostore (macOS)"
+            BlueprintIdentifier = "941B03AE296FA90400CA291E"
+            BuildableName = "gnostore.app"
+            BlueprintName = "gnostore (iOS)"
             ReferencedContainer = "container:gnostore.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -61,9 +61,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "941B03C0296FA90400CA291E"
-            BuildableName = "Nostash.app"
-            BlueprintName = "gnostore (macOS)"
+            BlueprintIdentifier = "941B03AE296FA90400CA291E"
+            BuildableName = "gnostore.app"
+            BlueprintName = "gnostore (iOS)"
             ReferencedContainer = "container:gnostore.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

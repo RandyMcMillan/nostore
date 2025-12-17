@@ -826,7 +826,7 @@
 					"-framework",
 					SafariServices,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.nostash.Extension;
+				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.gnostore.Extension;
 				PRODUCT_NAME = "gnostore Extension";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -858,7 +858,7 @@
 					"-framework",
 					SafariServices,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.nostash.Extension;
+				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.gnostore.Extension;
 				PRODUCT_NAME = "gnostore Extension";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -879,7 +879,7 @@
 				DEVELOPMENT_TEAM = M684FYCYG6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (App)/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = Nostash;
+				INFOPLIST_KEY_CFBundleDisplayName = gnostore;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -899,7 +899,7 @@
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.nostash;
+				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.gnostore;
 				PRODUCT_NAME = gnostore;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -921,7 +921,7 @@
 				DEVELOPMENT_TEAM = M684FYCYG6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (App)/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = Nostash;
+				INFOPLIST_KEY_CFBundleDisplayName = gnostore;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -941,7 +941,7 @@
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.nostash;
+				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.gnostore;
 				PRODUCT_NAME = gnostore;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -979,7 +979,7 @@
 					"-framework",
 					SafariServices,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.nostash.Extension;
+				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.gnostore.Extension;
 				PRODUCT_NAME = "gnostore Extension";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -1013,7 +1013,7 @@
 					"-framework",
 					SafariServices,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.nostash.Extension;
+				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.gnostore.Extension;
 				PRODUCT_NAME = "gnostore Extension";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -1035,7 +1035,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Nostash--macOS--Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = Nostash;
+				INFOPLIST_KEY_CFBundleDisplayName = gnostore;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1050,7 +1050,7 @@
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.nostash;
+				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.gnostore;
 				PRODUCT_NAME = gnostore;
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1071,7 +1071,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Nostash--macOS--Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = Nostash;
+				INFOPLIST_KEY_CFBundleDisplayName = gnostore;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1086,7 +1086,7 @@
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.nostash;
+				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.gnostore;
 				PRODUCT_NAME = gnostore;
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
