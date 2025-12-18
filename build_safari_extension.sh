@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Define the project and scheme
-PROJECT="Nostore.xcodeproj"
-SCHEME="Nostore (macOS)" # This scheme builds the macOS app, which should include the Safari Extension as an embedded target.
+PROJECT="gnostore.xcodeproj"
+SCHEME="gnostore" # This scheme builds the macOS app, which should include the Safari Extension as an embedded target.
 CONFIGURATION="Debug"   # Use Debug for development, or Release for a final build.
 DESTINATION="platform=macOS"
 
