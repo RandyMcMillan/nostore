@@ -16,8 +16,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "941B03C0296FA90400CA291E"
-               BuildableName = "Nostore.app"
-               BlueprintName = "Nostore (macOS)"
+               BuildableName = "gnostore.app"
+               BlueprintName = "gnostore (macOS)"
                ReferencedContainer = "container:gnostore.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,8 +45,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "941B03C0296FA90400CA291E"
-            BuildableName = "Nostore.app"
-            BlueprintName = "Nostore (macOS)"
+            BuildableName = "gnostore.app"
+            BlueprintName = "gnostore (macOS)"
             ReferencedContainer = "container:gnostore.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -62,8 +62,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "941B03C0296FA90400CA291E"
-            BuildableName = "Nostore.app"
-            BlueprintName = "Nostore (macOS)"
+            BuildableName = "gnostore.app"
+            BlueprintName = "gnostore (macOS)"
             ReferencedContainer = "container:gnostore.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
