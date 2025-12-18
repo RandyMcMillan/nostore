@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		941B03CE296FA90400CA291E /* Nostore Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 941B03CD296FA90400CA291E /* Nostore Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		941B03D8296FA90400CA291E /* Nostore Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 941B03D7296FA90400CA291E /* Nostore Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		941B03CE296FA90400CA291E /* gnostore Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 941B03CD296FA90400CA291E /* gnostore Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		941B03D8296FA90400CA291E /* gnostore Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 941B03D7296FA90400CA291E /* gnostore Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		941B03DE296FA90400CA291E /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = 941B0399296FA90300CA291E /* Main.html */; };
 		941B03DF296FA90400CA291E /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = 941B0399296FA90300CA291E /* Main.html */; };
 		941B03E0296FA90400CA291E /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 941B039B296FA90300CA291E /* Icon.png */; };
@@ -131,7 +131,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				941B03CE296FA90400CA291E /* Nostore Extension.appex in Embed Foundation Extensions */,
+				941B03CE296FA90400CA291E /* gnostore Extension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -142,7 +142,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				941B03D8296FA90400CA291E /* Nostore Extension.appex in Embed Foundation Extensions */,
+				941B03D8296FA90400CA291E /* gnostore Extension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -165,13 +165,13 @@
 		941B03A8296FA90400CA291E /* popup.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = popup.html; sourceTree = "<group>"; };
 		941B03A9296FA90400CA291E /* popup.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = popup.css; sourceTree = "<group>"; };
 		941B03AA296FA90400CA291E /* popup.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = popup.js; sourceTree = "<group>"; };
-		941B03AF296FA90400CA291E /* Nostore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nostore.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		941B03AF296FA90400CA291E /* gnostore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gnostore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		941B03BC296FA90400CA291E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		941B03C1296FA90400CA291E /* Nostore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nostore.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		941B03C1296FA90400CA291E /* gnostore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gnostore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		941B03C8296FA90400CA291E /* nostore.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = nostore.entitlements; sourceTree = "<group>"; };
-		941B03CD296FA90400CA291E /* Nostore Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Nostore Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		941B03CD296FA90400CA291E /* gnostore Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "gnostore Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		941B03D2296FA90400CA291E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		941B03D7296FA90400CA291E /* Nostore Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Nostore Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		941B03D7296FA90400CA291E /* gnostore Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "gnostore Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		941B03DC296FA90400CA291E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		941B03DD296FA90400CA291E /* nostore.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = nostore.entitlements; sourceTree = "<group>"; };
 		941B040C296FAD6900CA291E /* nostr.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = nostr.js; sourceTree = "<group>"; };
@@ -322,10 +322,10 @@
 		941B03B0296FA90400CA291E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				941B03AF296FA90400CA291E /* Nostore.app */,
-				941B03C1296FA90400CA291E /* Nostore.app */,
-				941B03CD296FA90400CA291E /* Nostore Extension.appex */,
-				941B03D7296FA90400CA291E /* Nostore Extension.appex */,
+				941B03AF296FA90400CA291E /* gnostore.app */,
+				941B03C1296FA90400CA291E /* gnostore.app */,
+				941B03CD296FA90400CA291E /* gnostore Extension.appex */,
+				941B03D7296FA90400CA291E /* gnostore Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -381,9 +381,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		941B03AE296FA90400CA291E /* Nostore (iOS) */ = {
+		941B03AE296FA90400CA291E /* gnostore (iOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 941B0402296FA90400CA291E /* Build configuration list for PBXNativeTarget "Nostore (iOS)" */;
+			buildConfigurationList = 941B0402296FA90400CA291E /* Build configuration list for PBXNativeTarget "gnostore (iOS)" */;
 			buildPhases = (
 				941B03AB296FA90400CA291E /* Sources */,
 				941B03AC296FA90400CA291E /* Frameworks */,
@@ -395,14 +395,14 @@
 			dependencies = (
 				941B03D0296FA90400CA291E /* PBXTargetDependency */,
 			);
-			name = "Nostore (iOS)";
+			name = "gnostore (iOS)";
 			productName = "nostore (iOS)";
-			productReference = 941B03AF296FA90400CA291E /* Nostore.app */;
+			productReference = 941B03AF296FA90400CA291E /* gnostore.app */;
 			productType = "com.apple.product-type.application";
 		};
-		941B03C0296FA90400CA291E /* Nostore (macOS) */ = {
+		941B03C0296FA90400CA291E /* gnostore (macOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 941B0409296FA90400CA291E /* Build configuration list for PBXNativeTarget "Nostore (macOS)" */;
+			buildConfigurationList = 941B0409296FA90400CA291E /* Build configuration list for PBXNativeTarget "gnostore (macOS)" */;
 			buildPhases = (
 				941B03BD296FA90400CA291E /* Sources */,
 				941B03BE296FA90400CA291E /* Frameworks */,
@@ -414,14 +414,14 @@
 			dependencies = (
 				941B03DA296FA90400CA291E /* PBXTargetDependency */,
 			);
-			name = "Nostore (macOS)";
+			name = "gnostore (macOS)";
 			productName = "nostore (macOS)";
-			productReference = 941B03C1296FA90400CA291E /* Nostore.app */;
+			productReference = 941B03C1296FA90400CA291E /* gnostore.app */;
 			productType = "com.apple.product-type.application";
 		};
-		941B03CC296FA90400CA291E /* Nostore Extension (iOS) */ = {
+		941B03CC296FA90400CA291E /* gnostore Extension (iOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 941B03FE296FA90400CA291E /* Build configuration list for PBXNativeTarget "Nostore Extension (iOS)" */;
+			buildConfigurationList = 941B03FE296FA90400CA291E /* Build configuration list for PBXNativeTarget "gnostore Extension (iOS)" */;
 			buildPhases = (
 				941B03C9296FA90400CA291E /* Sources */,
 				941B03CA296FA90400CA291E /* Frameworks */,
@@ -431,14 +431,14 @@
 			);
 			dependencies = (
 			);
-			name = "Nostore Extension (iOS)";
+			name = "gnostore Extension (iOS)";
 			productName = "nostore Extension (iOS)";
-			productReference = 941B03CD296FA90400CA291E /* Nostore Extension.appex */;
+			productReference = 941B03CD296FA90400CA291E /* gnostore Extension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		941B03D6296FA90400CA291E /* Nostore Extension (macOS) */ = {
+		941B03D6296FA90400CA291E /* gnostore Extension (macOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 941B0405296FA90400CA291E /* Build configuration list for PBXNativeTarget "Nostore Extension (macOS)" */;
+			buildConfigurationList = 941B0405296FA90400CA291E /* Build configuration list for PBXNativeTarget "gnostore Extension (macOS)" */;
 			buildPhases = (
 				941B03D3296FA90400CA291E /* Sources */,
 				941B03D4296FA90400CA291E /* Frameworks */,
@@ -448,9 +448,9 @@
 			);
 			dependencies = (
 			);
-			name = "Nostore Extension (macOS)";
+			name = "gnostore Extension (macOS)";
 			productName = "nostore Extension (macOS)";
-			productReference = 941B03D7296FA90400CA291E /* Nostore Extension.appex */;
+			productReference = 941B03D7296FA90400CA291E /* gnostore Extension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -477,7 +477,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 941B0396296FA90300CA291E /* Build configuration list for PBXProject "Nostore" */;
+			buildConfigurationList = 941B0396296FA90300CA291E /* Build configuration list for PBXProject "gnostore" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -490,10 +490,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				941B03AE296FA90400CA291E /* Nostore (iOS) */,
-				941B03C0296FA90400CA291E /* Nostore (macOS) */,
-				941B03CC296FA90400CA291E /* Nostore Extension (iOS) */,
-				941B03D6296FA90400CA291E /* Nostore Extension (macOS) */,
+				941B03AE296FA90400CA291E /* gnostore (iOS) */,
+				941B03C0296FA90400CA291E /* gnostore (macOS) */,
+				941B03CC296FA90400CA291E /* gnostore Extension (iOS) */,
+				941B03D6296FA90400CA291E /* gnostore Extension (macOS) */,
 			);
 		};
 /* End PBXProject section */
@@ -659,12 +659,12 @@
 /* Begin PBXTargetDependency section */
 		941B03D0296FA90400CA291E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 941B03CC296FA90400CA291E /* Nostore Extension (iOS) */;
+			target = 941B03CC296FA90400CA291E /* gnostore Extension (iOS) */;
 			targetProxy = 941B03CF296FA90400CA291E /* PBXContainerItemProxy */;
 		};
 		941B03DA296FA90400CA291E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 941B03D6296FA90400CA291E /* Nostore Extension (macOS) */;
+			target = 941B03D6296FA90400CA291E /* gnostore Extension (macOS) */;
 			targetProxy = 941B03D9296FA90400CA291E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -798,7 +798,7 @@
 				DEVELOPMENT_TEAM = M684FYCYG6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "nostore Extension";
+				INFOPLIST_KEY_CFBundleDisplayName = "gnostore Extension";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -812,7 +812,7 @@
 					SafariServices,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.nostore.Extension;
-				PRODUCT_NAME = "Nostore Extension";
+				PRODUCT_NAME = "gnostore Extension";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -829,7 +829,7 @@
 				DEVELOPMENT_TEAM = M684FYCYG6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "nostore Extension";
+				INFOPLIST_KEY_CFBundleDisplayName = "gnostore Extension";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -843,7 +843,7 @@
 					SafariServices,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.nostore.Extension;
-				PRODUCT_NAME = "Nostore Extension";
+				PRODUCT_NAME = "gnostore Extension";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -864,7 +864,7 @@
 				DEVELOPMENT_TEAM = M684FYCYG6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (App)/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = Nostore;
+				INFOPLIST_KEY_CFBundleDisplayName = gnostore;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -884,7 +884,7 @@
 					WebKit,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.nostore;
-				PRODUCT_NAME = Nostore;
+				PRODUCT_NAME = gnostore;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -906,7 +906,7 @@
 				DEVELOPMENT_TEAM = M684FYCYG6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (App)/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = Nostore;
+				INFOPLIST_KEY_CFBundleDisplayName = gnostore;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -926,7 +926,7 @@
 					WebKit,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.nostore;
-				PRODUCT_NAME = Nostore;
+				PRODUCT_NAME = gnostore;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -948,7 +948,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "nostore Extension";
+				INFOPLIST_KEY_CFBundleDisplayName = "gnostore Extension";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -962,7 +962,7 @@
 					SafariServices,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.nostore.Extension;
-				PRODUCT_NAME = "Nostore Extension";
+				PRODUCT_NAME = "gnostore Extension";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -980,7 +980,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "nostore Extension";
+				INFOPLIST_KEY_CFBundleDisplayName = "gnostore Extension";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -994,7 +994,7 @@
 					SafariServices,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.nostore.Extension;
-				PRODUCT_NAME = "Nostore Extension";
+				PRODUCT_NAME = "gnostore Extension";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1014,8 +1014,8 @@
 				DEVELOPMENT_TEAM = M684FYCYG6;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Nostore--macOS--Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = Nostore;
+				INFOPLIST_FILE = "gnostore--macOS--Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = gnostore;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1031,7 +1031,7 @@
 					WebKit,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.nostore;
-				PRODUCT_NAME = Nostore;
+				PRODUCT_NAME = gnostore;
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1050,8 +1050,8 @@
 				DEVELOPMENT_TEAM = M684FYCYG6;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Nostore--macOS--Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = Nostore;
+				INFOPLIST_FILE = "gnostore--macOS--Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = gnostore;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1067,7 +1067,7 @@
 					WebKit,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.nostore;
-				PRODUCT_NAME = Nostore;
+				PRODUCT_NAME = gnostore;
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1077,7 +1077,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		941B0396296FA90300CA291E /* Build configuration list for PBXProject "Nostore" */ = {
+		941B0396296FA90300CA291E /* Build configuration list for PBXProject "gnostore" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				941B03FC296FA90400CA291E /* Debug */,
@@ -1086,7 +1086,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		941B03FE296FA90400CA291E /* Build configuration list for PBXNativeTarget "Nostore Extension (iOS)" */ = {
+		941B03FE296FA90400CA291E /* Build configuration list for PBXNativeTarget "gnostore Extension (iOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				941B03FF296FA90400CA291E /* Debug */,
@@ -1095,7 +1095,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		941B0402296FA90400CA291E /* Build configuration list for PBXNativeTarget "Nostore (iOS)" */ = {
+		941B0402296FA90400CA291E /* Build configuration list for PBXNativeTarget "gnostore (iOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				941B0403296FA90400CA291E /* Debug */,
@@ -1104,7 +1104,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		941B0405296FA90400CA291E /* Build configuration list for PBXNativeTarget "Nostore Extension (macOS)" */ = {
+		941B0405296FA90400CA291E /* Build configuration list for PBXNativeTarget "gnostore Extension (macOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				941B0406296FA90400CA291E /* Debug */,
@@ -1113,7 +1113,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		941B0409296FA90400CA291E /* Build configuration list for PBXNativeTarget "Nostore (macOS)" */ = {
+		941B0409296FA90400CA291E /* Build configuration list for PBXNativeTarget "gnostore (macOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				941B040A296FA90400CA291E /* Debug */,
