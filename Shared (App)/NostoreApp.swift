@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct NostoreApp: App {
     var body: some Scene {
-        WindowGroup("Nostore") {
+        WindowGroup("gnostore") {
             MainView()
         }
         #if macOS

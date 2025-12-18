@@ -18,7 +18,7 @@ struct GettingStartediPad: View {
                 .foregroundColor(.accentColor)
             Text("")
             Text("""
-Upon installation of the app, go to **Settings -> Safari -> Extensions** and enable **Nostore**. Open Safari and look in the toolbar, where you will see the \(Image(systemName: "puzzlepiece.extension")) icon:
+Upon installation of the app, go to **Settings -> Safari -> Extensions** and enable **gnostore**. Open Safari and look in the toolbar, where you will see the \(Image(systemName: "puzzlepiece.extension")) icon:
 """)
                 .padding([.horizontal, .top], 20)
 
@@ -39,7 +39,7 @@ Upon installation of the app, go to **Settings -> Safari -> Extensions** and ena
                 .padding([.top])
 
             Text("""
-The **Nostore** logo is gray, indicating the extension is inactive for this site, and must be activated first. Click on the button, and give Nostore permission to access the current site. Now the Nostore logo will appear in color, and you can click it again to access the extension.
+The **gnostore** logo is gray, indicating the extension is inactive for this site, and must be activated first. Click on the button, and give gnostore permission to access the current site. Now the gnostore logo will appear in color, and you can click it again to access the extension.
 """).multilineTextAlignment(.leading)
                 .padding([.horizontal, .top], 20)
             

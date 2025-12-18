@@ -12,7 +12,7 @@ struct MainView: View {
         VStack {
             NavigationStack {
                 Image("Icon").resizable().frame(width: 150.0, height: 150.0)
-                Text("Nostore").font(.title)
+                Text("gnostore").font(.title)
                 Text("A Safari Nostr Extension").font(.title2)
                 NavigationLink("Privacy Policy") {
                     PrivacyPolicyView()
