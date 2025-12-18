@@ -811,7 +811,7 @@
 					"-framework",
 					SafariServices,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.nostore.Extension;
+				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.gnostore.Extension;
 				PRODUCT_NAME = "gnostore Extension";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -842,7 +842,7 @@
 					"-framework",
 					SafariServices,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.nostore.Extension;
+				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.gnostore.Extension;
 				PRODUCT_NAME = "gnostore Extension";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -883,7 +883,7 @@
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.nostore;
+				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.gnostore;
 				PRODUCT_NAME = gnostore;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -925,7 +925,7 @@
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.nostore;
+				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.gnostore;
 				PRODUCT_NAME = gnostore;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -961,7 +961,7 @@
 					"-framework",
 					SafariServices,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.nostore.Extension;
+				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.gnostore.Extension;
 				PRODUCT_NAME = "gnostore Extension";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -993,7 +993,7 @@
 					"-framework",
 					SafariServices,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.nostore.Extension;
+				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.gnostore.Extension;
 				PRODUCT_NAME = "gnostore Extension";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -1030,7 +1030,7 @@
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.nostore;
+				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.gnostore;
 				PRODUCT_NAME = gnostore;
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1066,7 +1066,7 @@
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.nostore;
+				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.gnostore;
 				PRODUCT_NAME = gnostore;
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
