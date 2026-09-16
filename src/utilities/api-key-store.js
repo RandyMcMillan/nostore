@@ -21,6 +21,13 @@ import { wrapSecret, unwrapSecret, isCiphertext } from './secret-vault';
 
 const storage = api.storage.local;
 const STORAGE_KEY = 'apiKeyVault';
+// Deletion tombstones keyed by id (issue #3): { <id>: deletedAtSeconds }.
+const DELETED_KEY = 'deletedKeys';
+
+async function getDeletedKeys() {
+    const data = await storage.get({ [DELETED_KEY]: {} });
+    return data[DELETED_KEY] && typeof data[DELETED_KEY] === 'object' ? data[DELETED_KEY] : {};
+}
 
 /**
  * Decrypt a key's `secret` field for callers. Re-throws lock errors so a locked
@@ -104,17 +111,31 @@ export async function saveApiKey(id, label, secret) {
         updatedAt: now,
         profileScope: existing?.profileScope ?? null,
     };
-    await setStore(store);
+    // Recreate clears any tombstone for this id (issue #3) so the freshly saved
+    // key is no longer suppressed from the sync payload.
+    const deleted = await getDeletedKeys();
+    if (deleted[id] != null) {
+        delete deleted[id];
+        await storage.set({ [STORAGE_KEY]: store, [DELETED_KEY]: deleted });
+        scheduleSyncPush();
+    } else {
+        await setStore(store);
+    }
     return decryptKey(store.keys[id]);
 }
 
 /**
- * Delete an API key by id.
+ * Delete an API key by id and record a tombstone (issue #3) so the deletion
+ * propagates through storage.sync and a stale whole-object overwrite from
+ * another device cannot resurrect it.
  */
 export async function deleteApiKey(id) {
     const store = await getStore();
     delete store.keys[id];
-    await setStore(store);
+    const deleted = await getDeletedKeys();
+    deleted[id] = Math.floor(Date.now() / 1000);
+    await storage.set({ [STORAGE_KEY]: store, [DELETED_KEY]: deleted });
+    scheduleSyncPush();
 }
 
 /**

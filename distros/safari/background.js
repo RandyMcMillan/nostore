@@ -930,6 +930,9 @@ const SENSITIVE_KINDS = new Set([
     // NK-04: consent control messages must come from the extension-owned
     // permission surface, not from a content script / web page.
     'allowed', 'denied', 'closePrompt',
+    // Reindexes the in-memory index-keyed session key cache after a profile
+    // delete — mutates privileged session state, extension UI only.
+    'reindexSessionKeys',
 ]);
 
 function isExtensionSender(sender) {
@@ -1060,6 +1063,16 @@ api.runtime.onMessage.addListener((message, _sender, sendResponse) => {
                 await savePrivateKey(message.payload);
                 return { success: true };
             });
+            return true;
+        case 'reindexSessionKeys':
+            // Sender-gated above. Shift the index-keyed session cache after a
+            // profile delete so higher profiles keep resolving without re-unlock.
+            try {
+                reindexSessionKeysAfterDelete(Number(message.payload));
+                sendResponse({ success: true });
+            } catch (e) {
+                sendResponse({ success: false, error: e.message });
+            }
             return true;
         case 'getNpub':
             (async () => {
@@ -1933,19 +1946,45 @@ api.runtime.onMessage.addListener((message, _sender, sendResponse) => {
                     }
                     // Populate session key cache
                     sessionKeys.clear();
+                    // Restored data.profiles can predate pubKey caching and carry
+                    // pubKey='' verbatim. sessionKeys is keyed by profile INDEX, and a
+                    // later mid-list deleteProfile() splices the array WITHOUT
+                    // reindexing this Map — so an entry cached here without a pubKey
+                    // would slip past the B1 stale-cache guard (which needs a pubKey to
+                    // detect a wrong-identity key). Co-populate pubKey for every profile
+                    // whose key we cache, exactly as unlockSession does (~line 842), so
+                    // NO sessionKeys entry is ever created without a verifiable pubKey.
+                    let restoredPubKeyNeedsSave = false;
                     if (Array.isArray(data.profiles)) {
                         for (let i = 0; i < data.profiles.length; i++) {
                             const p = data.profiles[i];
                             if (p.type === 'bunker' || !p.privKey) continue;
+                            let hex;
                             if (isEncryptedBlob(p.privKey)) {
                                 try {
-                                    const hex = await decryptBlob(p.privKey, password);
-                                    sessionKeys.set(i, hex);
-                                } catch (_) {}
+                                    hex = await decryptBlob(p.privKey, password);
+                                } catch (_) {
+                                    continue; // undecryptable blob — cache nothing for this slot
+                                }
                             } else {
-                                sessionKeys.set(i, p.privKey);
+                                hex = p.privKey;
+                            }
+                            sessionKeys.set(i, hex);
+                            if (!p.pubKey && hex) {
+                                try {
+                                    p.pubKey = getPublicKeySync(hex);
+                                    restoredPubKeyNeedsSave = true;
+                                } catch (e) {
+                                    console.error(`Failed to cache pubKey for restored profile ${i}:`, e);
+                                }
                             }
                         }
+                    }
+                    // storage.set(data) above persisted the profiles verbatim; write
+                    // back the co-populated pubKeys so the on-disk profiles match the
+                    // cache (and stay verifiable after a reload).
+                    if (restoredPubKeyNeedsSave) {
+                        await storage.set({ profiles: data.profiles });
                     }
                     resetAutoLock();
                     const profileCount = Array.isArray(data.profiles) ? data.profiles.length : 0;
@@ -2476,7 +2515,29 @@ async function getPlaintextPrivKey(index, profile) {
     if (isEncryptedBlob(profile.privKey)) {
         // Password blob — must use the in-memory session cache (requires unlock).
         if (sessionKeys.has(index)) {
-            return sessionKeys.get(index);
+            const cached = sessionKeys.get(index);
+            // sessionKeys is keyed by profile INDEX, but deleteProfile() splices the
+            // profiles array WITHOUT reindexing this Map. After a mid-list delete the
+            // entry at `index` can belong to a DIFFERENT identity — returning it would
+            // sign with the wrong key. When the profile carries a cached pubKey (every
+            // profile that has been unlocked does — see unlock, which co-populates it),
+            // verify the cached key derives THAT pubKey. A positive mismatch proves the
+            // entry is stale/wrong-identity: drop it and refuse rather than sign with
+            // someone else's key. (No cached pubKey = a legacy/parked profile we cannot
+            // verify against; behave as before rather than break read-only resume.)
+            if (profile.pubKey) {
+                let derived = null;
+                try {
+                    derived = getPublicKeySync(cached);
+                } catch (e) {
+                    derived = null; // unverifiable against a known pubKey = treat as mismatch
+                }
+                if (derived !== profile.pubKey) {
+                    sessionKeys.delete(index);
+                    throw new Error('Extension is locked — cannot access private key');
+                }
+            }
+            return cached;
         }
         throw new Error('Extension is locked — cannot access private key');
     }
@@ -2488,6 +2549,34 @@ async function getPrivKey() {
     let profile = await currentProfile();
     let hexKey = await getPlaintextPrivKey(index, profile);
     return hexToBytes(hexKey);
+}
+
+/**
+ * Reindex the in-memory `sessionKeys` map after a profile at `deletedIndex` was
+ * removed. The map is keyed by profile INDEX, and deleteProfile() splices the
+ * profiles array WITHOUT touching this map — so after a mid-list delete every
+ * entry above the removed index is off by one and belongs to a different
+ * identity. Drop the removed entry and shift every higher entry down by one so
+ * the shifted profiles keep resolving their own key without a re-unlock.
+ *
+ * Safety net only: getPlaintextPrivKey independently verifies the cached key
+ * derives the profile's pubKey and refuses on mismatch, so a missed reindex can
+ * only ever cause a "locked — re-unlock" refusal, never a wrong-key signature.
+ */
+function reindexSessionKeysAfterDelete(deletedIndex) {
+    if (typeof deletedIndex !== 'number' || deletedIndex < 0) return;
+    const hadHigher = [...sessionKeys.keys()].some(k => k >= deletedIndex);
+    if (!hadHigher) return;
+    const entries = [...sessionKeys.entries()].sort((a, b) => a[0] - b[0]);
+    sessionKeys.clear();
+    for (const [i, hex] of entries) {
+        if (i === deletedIndex) continue;       // the removed profile's key
+        sessionKeys.set(i > deletedIndex ? i - 1 : i, hex);
+    }
+    // Re-park the shifted session so an MV3 worker eviction restores the
+    // corrected mapping (no-op while locked / passwordless).
+    persistSessionState(Date.now() + autoLockTimeout);
+    log(`[SESSION] Reindexed sessionKeys after delete of index ${deletedIndex}; ${sessionKeys.size} key(s) retained`);
 }
 
 async function getPubKey() {

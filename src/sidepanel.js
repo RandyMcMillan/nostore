@@ -25,7 +25,10 @@ import {
     getProfiles,
 } from './utilities/utils';
 import { api } from './utilities/browser-polyfill';
-import { isSyncEnabled, setSyncEnabled } from './utilities/sync-manager';
+import {
+    isSyncEnabled, setSyncEnabled,
+    getTombstoneCount, tombstoneWarningLevel, clearDeletionHistory,
+} from './utilities/sync-manager';
 import {
     enableCloudBackup, disableCloudBackup, getCloudStatus,
     cloudBackupNow, scheduleCloudBackup, restoreFromCloud,
@@ -202,6 +205,9 @@ function initElements() {
     // Sync toggle
     elements.syncToggle = $('sync-toggle');
     elements.syncStatusText = $('sync-status-text');
+    elements.deletionHistoryNotice = $('deletion-history-notice');
+    elements.deletionHistoryText = $('deletion-history-text');
+    elements.clearDeletionHistoryBtn = $('clear-deletion-history-btn');
     // Cloud backup (folder)
     elements.cloudBackupCard = $('cloud-backup-card');
     elements.cloudBackupToggle = $('cloud-backup-toggle');
@@ -1698,6 +1704,9 @@ async function saveProfileChanges() {
         return;
     }
 
+    // Track a newly-created slot so a key-save failure can roll it back instead of
+    // stranding an orphan profile with a random key. Stays null on the edit path.
+    let createdNewIndex = null;
     try {
         if (state.editingProfileIndex === null) {
             // Creating new profile
@@ -1723,6 +1732,7 @@ async function saveProfileChanges() {
 
             // Create new profile
             const newIndex = await newProfile();
+            createdNewIndex = newIndex;
             await saveProfileName(newIndex, name);
             // Save the private key
             const saved = await api.runtime.sendMessage({
@@ -1757,6 +1767,15 @@ async function saveProfileChanges() {
             showBackupPrompt();
         }, 800);
     } catch (e) {
+        // New-profile path only: roll back the orphan slot so no profile with a
+        // random/entered key is left behind after a save failure.
+        if (createdNewIndex != null) {
+            try {
+                await deleteProfile(createdNewIndex);
+            } catch (cleanupErr) {
+                console.error('Failed to roll back orphan profile after save error:', cleanupErr);
+            }
+        }
         showProfileError('Failed to save profile: ' + e.message);
     } finally {
         state._saving = false;
@@ -2083,6 +2102,34 @@ async function loadSyncState() {
             elements.syncToggle.disabled = true;
         }
         updateSyncStatusText(false);
+    }
+    await renderDeletionHistoryNotice();
+}
+
+// Surface the retained-deletion-history warning. Tombstones are kept forever so
+// a device that never learned of a deletion cannot resurrect the item, so the
+// count only grows — nudge the user to trim once it gets large. The threshold
+// LOGIC lives in sync-manager (getTombstoneCount / tombstoneWarningLevel); this
+// only renders it.
+async function renderDeletionHistoryNotice() {
+    if (!elements.deletionHistoryNotice) return;
+    let level = 0;
+    let count = 0;
+    try {
+        count = await getTombstoneCount();
+        level = tombstoneWarningLevel(count);
+    } catch {
+        level = 0;
+    }
+    if (level === 0) {
+        elements.deletionHistoryNotice.classList.add('hidden');
+        return;
+    }
+    elements.deletionHistoryNotice.classList.remove('hidden');
+    if (elements.deletionHistoryText) {
+        elements.deletionHistoryText.textContent = level >= 2
+            ? `Deletion history is large (${count} entries). Clearing it frees sync space; a device that has been offline since one of those deletions could re-add that item.`
+            : `Deletion history has grown to ${count} entries. You may want to clear it. A device offline since a cleared deletion could re-add that item.`;
     }
 }
 
@@ -2879,6 +2926,13 @@ function bindEvents() {
         elements.syncToggle.addEventListener('change', async () => {
             await setSyncEnabled(elements.syncToggle.checked);
             updateSyncStatusText(elements.syncToggle.checked);
+        });
+    }
+    // Clear deletion history (issue #3 tombstones)
+    if (elements.clearDeletionHistoryBtn) {
+        elements.clearDeletionHistoryBtn.addEventListener('click', async () => {
+            await clearDeletionHistory();
+            await renderDeletionHistoryNotice();
         });
     }
     // Cloud backup (folder)

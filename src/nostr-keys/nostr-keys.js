@@ -8,6 +8,7 @@ import {
     saveProfileName,
     savePrivateKey,
     validateKey,
+    deleteProfile,
 } from '../utilities/utils';
 
 // storage.local key: { [npub]: ISO-date-string } — device-side "backed up" flags.
@@ -426,9 +427,12 @@ async function importKeys() {
 
     if (!name) name = 'Imported Profile';
 
+    // Track the just-created slot so a key-save failure doesn't strand an orphan
+    // profile (with a generated key) behind the error.
+    let newIndex = null;
     try {
         // Create a new profile slot
-        const newIndex = await newProfile();
+        newIndex = await newProfile();
 
         // Save the name
         await saveProfileName(newIndex, name);
@@ -448,6 +452,15 @@ async function importKeys() {
 
         showToast('Imported "' + name + '"');
     } catch (e) {
+        // Roll back the half-created profile so no orphan slot with a stored key
+        // lingers after a failed import.
+        if (newIndex != null) {
+            try {
+                await deleteProfile(newIndex);
+            } catch (cleanupErr) {
+                console.error('Failed to roll back orphan profile after import error:', cleanupErr);
+            }
+        }
         state.importError = 'Import failed: ' + (e.message || 'unknown error');
         render();
     }

@@ -19,6 +19,13 @@ import { wrapSecret, unwrapSecret } from './secret-vault';
 
 const storage = api.storage.local;
 const STORAGE_KEY = 'vaultDocs';
+// Deletion tombstones keyed by path (issue #3): { <path>: deletedAtSeconds }.
+const DELETED_KEY = 'deletedDocs';
+
+async function getDeletedDocs() {
+    const data = await storage.get({ [DELETED_KEY]: {} });
+    return data[DELETED_KEY] && typeof data[DELETED_KEY] === 'object' ? data[DELETED_KEY] : {};
+}
 
 async function getDocs() {
     const data = await storage.get({ [STORAGE_KEY]: {} });
@@ -89,17 +96,31 @@ export async function saveDocumentLocal(path, content, syncStatus, eventId = nul
         relayCreatedAt,
         profileScope: existing?.profileScope ?? null,
     };
-    await setDocs(docs);
+    // Recreate clears any tombstone for this path (issue #3), so the freshly
+    // saved doc is no longer suppressed from the sync payload.
+    const deleted = await getDeletedDocs();
+    if (deleted[path] != null) {
+        delete deleted[path];
+        await storage.set({ [STORAGE_KEY]: docs, [DELETED_KEY]: deleted });
+    } else {
+        await storage.set({ [STORAGE_KEY]: docs });
+    }
+    scheduleSyncPush();
     return decryptDoc(docs[path]);
 }
 
 /**
- * Delete a document from the local cache.
+ * Delete a document from the local cache and record a tombstone (issue #3) so
+ * the deletion propagates through storage.sync and a stale copy on another
+ * device cannot resurrect it.
  */
 export async function deleteDocumentLocal(path) {
     const docs = await getDocs();
     delete docs[path];
-    await setDocs(docs);
+    const deleted = await getDeletedDocs();
+    deleted[path] = Math.floor(Date.now() / 1000);
+    await storage.set({ [STORAGE_KEY]: docs, [DELETED_KEY]: deleted });
+    scheduleSyncPush();
 }
 
 /**

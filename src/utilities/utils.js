@@ -2,6 +2,7 @@ import { getPublicKeySync } from 'nostr-crypto-utils';
 import { api } from './browser-polyfill';
 import { encrypt, decrypt, hashPassword, verifyPassword } from './crypto';
 import { looksLikeSeedPhrase, isValidSeedPhrase } from './seedphrase';
+import { scheduleSyncPush } from './sync-manager';
 import {
     encryptWithDeviceKey,
     isDeviceKeyBlob,
@@ -182,15 +183,45 @@ export async function setProfileIndex(profileIndex) {
 export async function deleteProfile(index) {
     let profiles = await getProfiles();
     let profileIndex = await getProfileIndex();
+    // Capture the deleted identity BEFORE the splice so we can tombstone it
+    // (issue #3): a deleted profile must not resurrect from the sync mirror.
+    const removed = profiles[index];
+    const identityKey = (removed && (removed.pubKey || removed.remotePubkey)) || null;
     profiles.splice(index, 1);
     if (profiles.length == 0) {
+        // Deleting the LAST profile is a "start fresh" reset, not a syncable
+        // deletion — clearData wipes storage (any tombstone included) and
+        // initialize mints a new default. No profile tombstone is written here.
         await clearData(); // If we have deleted all of the profiles, let's just start fresh with all new data
         await initialize();
     } else {
-        // If the index deleted was the active profile, change the active profile to the next one
-        let newIndex =
-            profileIndex === index ? Math.max(index - 1, 0) : profileIndex;
-        await storage.set({ profiles, profileIndex: newIndex });
+        // Keep the ACTIVE identity active across the splice:
+        //  - deleted the active profile itself → step to the previous slot;
+        //  - deleted a profile ORDERED BEFORE the active one → shift the index
+        //    down by one so it still points at the same identity;
+        //  - deleted a profile after the active one → index unchanged.
+        let newIndex;
+        if (profileIndex === index) newIndex = Math.max(index - 1, 0);
+        else if (index < profileIndex) newIndex = profileIndex - 1;
+        else newIndex = profileIndex;
+        const write = { profiles, profileIndex: newIndex };
+        if (identityKey) {
+            const deletedProfiles = (await storage.get({ deletedProfiles: {} })).deletedProfiles || {};
+            deletedProfiles[identityKey] = Math.floor(Date.now() / 1000);
+            write.deletedProfiles = deletedProfiles;
+        }
+        await storage.set(write);
+        // Propagate the deletion (incl. the tombstone) to the storage.sync mirror.
+        scheduleSyncPush();
+        // sessionKeys in the background is keyed by profile INDEX; a mid-list
+        // delete shifts every higher index down by one. Ask the background to
+        // reindex so a shifted profile still resolves its own key without a
+        // re-unlock. Privileged, sender-gated kind. Best-effort: getPlaintextPrivKey
+        // already fails CLOSED (verifies the key derives the pubKey, refuses on
+        // mismatch) if this does not run.
+        try {
+            await api.runtime.sendMessage({ kind: 'reindexSessionKeys', payload: index });
+        } catch { /* background unavailable (e.g. tests) — safe to ignore */ }
     }
 }
 
@@ -306,7 +337,7 @@ export async function newProfile() {
     let profiles = await getProfiles();
     const newProfile = await generateProfile('New Profile');
     profiles.push(newProfile);
-    await storage.set({ profiles });
+    await storage.set(await withProfileTombstoneCleared({ profiles }, newProfile));
     return profiles.length - 1;
 }
 
@@ -315,8 +346,27 @@ export async function newBunkerProfile(name = 'New Bunker', bunkerUrl = null) {
     const profile = await generateProfile(name, 'bunker');
     profile.bunkerUrl = bunkerUrl;
     profiles.push(profile);
-    await storage.set({ profiles });
+    await storage.set(await withProfileTombstoneCleared({ profiles }, profile));
     return profiles.length - 1;
+}
+
+/**
+ * Clear-on-recreate for profile tombstones (issue #3): if `profile` has an
+ * identity that carries a deletion tombstone, fold a cleared `deletedProfiles`
+ * into `write` so re-adding that identity drops its tombstone in the same write.
+ * Returns the (possibly extended) write object. A brand-new local key has a
+ * fresh random pubkey that won't match a prior tombstone; this matters for a
+ * bunker/import recreate of a previously-deleted identity.
+ */
+async function withProfileTombstoneCleared(write, profile) {
+    const id = (profile && (profile.pubKey || profile.remotePubkey)) || null;
+    if (!id) return write;
+    const deletedProfiles = (await storage.get({ deletedProfiles: {} })).deletedProfiles || {};
+    if (deletedProfiles[id] != null) {
+        delete deletedProfiles[id];
+        return { ...write, deletedProfiles };
+    }
+    return write;
 }
 
 export async function getRelays(profileIndex) {
@@ -365,7 +415,10 @@ export async function getPermission(host, action) {
 
 export async function setPermission(host, action, perm, index = null) {
     let profiles = await getProfiles();
-    if (!index) {
+    if (index == null) {
+        // Use == null so profile index 0 is respected; only undefined/null fall back
+        // to the active profile. `!index` treated 0 as unset and leaked grants for
+        // profile 0 onto whatever profile happened to be active.
         index = await getProfileIndex();
     }
     let profile = profiles[index];
