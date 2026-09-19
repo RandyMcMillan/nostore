@@ -3,7 +3,38 @@
 All notable changes to the NostrKey browser extension are documented here.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
-## [1.8.3] — Unreleased
+## [1.8.4] - 2026-09-18
+
+**The "deletes that stay deleted" release.** When you delete something it now
+stays gone across all your devices, signing always uses the right key after you
+remove a profile, and you can switch your active profile straight from the
+manage list.
+
+### Fixed
+- **Deleted items no longer reappear on your other devices.** Deleting a vault
+  note, a stored API key, or a whole profile could be undone when another of your
+  devices synced back an older copy. Deletions are now recorded and carried
+  across sync, so a delete stays a delete everywhere. Deletion history is kept so
+  the record cannot be lost; NostrKey nudges you to trim it at 8 entries and more
+  firmly at 16, with a one-tap "Clear deletion history".
+- **The right key, every time, after deleting a profile.** Removing a profile
+  from the middle of your list could, in rare cases, pair a signing request with
+  a different identity's key. NostrKey now confirms the key belongs to the
+  profile before it is ever used, and refuses rather than risk a mismatch.
+- **A second device no longer locks itself out.** A synced field could make a
+  freshly set-up device believe it needed a password it did not have. Fixed.
+
+### Added
+- **Switch your active profile from Manage Profiles.** Every non-active profile
+  now has a "Make Active" button, so you can change identities without leaving
+  the manage screen.
+
+### Changed
+- The automated suite grew to 632 tests, adding cross-device deletion journeys
+  and delete-then-switch key-safety checks that drive the whole system the way a
+  user would.
+
+## [1.8.3] — 2026-08-13
 
 **The "honest lock state" release.** The vault now tells the truth about every
 state it can be in, and password changes can no longer silently orphan a key.
