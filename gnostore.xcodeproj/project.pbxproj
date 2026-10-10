@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		941B03CE296FA90400CA291E /* Nostore Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 941B03CD296FA90400CA291E /* Nostore Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		941B03D8296FA90400CA291E /* Nostore Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 941B03D7296FA90400CA291E /* Nostore Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		941B03CE296FA90400CA291E /* gnostore Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 941B03CD296FA90400CA291E /* gnostore Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		941B03D8296FA90400CA291E /* gnostore Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 941B03D7296FA90400CA291E /* gnostore Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		941B03DE296FA90400CA291E /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = 941B0399296FA90300CA291E /* Main.html */; };
 		941B03DF296FA90400CA291E /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = 941B0399296FA90300CA291E /* Main.html */; };
 		941B03E0296FA90400CA291E /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 941B039B296FA90300CA291E /* Icon.png */; };
@@ -127,7 +127,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				941B03CE296FA90400CA291E /* Nostore Extension.appex in Embed Foundation Extensions */,
+				941B03CE296FA90400CA291E /* gnostore Extension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,7 +138,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				941B03D8296FA90400CA291E /* Nostore Extension.appex in Embed Foundation Extensions */,
+				941B03D8296FA90400CA291E /* gnostore Extension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -161,13 +161,13 @@
 		941B03A8296FA90400CA291E /* popup.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = popup.html; sourceTree = "<group>"; };
 		941B03A9296FA90400CA291E /* popup.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = popup.css; sourceTree = "<group>"; };
 		941B03AA296FA90400CA291E /* popup.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = popup.js; sourceTree = "<group>"; };
-		941B03AF296FA90400CA291E /* Nostore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nostore.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		941B03AF296FA90400CA291E /* gnostore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gnostore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		941B03BC296FA90400CA291E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		941B03C1296FA90400CA291E /* gnostore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gnostore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		941B03C8296FA90400CA291E /* nostore.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = nostore.entitlements; sourceTree = "<group>"; };
-		941B03CD296FA90400CA291E /* Nostore Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Nostore Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		941B03CD296FA90400CA291E /* gnostore Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "gnostore Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		941B03D2296FA90400CA291E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		941B03D7296FA90400CA291E /* Nostore Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Nostore Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		941B03D7296FA90400CA291E /* gnostore Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "gnostore Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		941B03DC296FA90400CA291E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		941B03DD296FA90400CA291E /* nostore.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = nostore.entitlements; sourceTree = "<group>"; };
 		941B040C296FAD6900CA291E /* nostr.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = nostr.js; sourceTree = "<group>"; };
@@ -316,10 +316,10 @@
 		941B03B0296FA90400CA291E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				941B03AF296FA90400CA291E /* Nostore.app */,
+				941B03AF296FA90400CA291E /* gnostore.app */,
 				941B03C1296FA90400CA291E /* gnostore.app */,
-				941B03CD296FA90400CA291E /* Nostore Extension.appex */,
-				941B03D7296FA90400CA291E /* Nostore Extension.appex */,
+				941B03CD296FA90400CA291E /* gnostore Extension.appex */,
+				941B03D7296FA90400CA291E /* gnostore Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -391,7 +391,7 @@
 			);
 			name = "gnostore (iOS)";
 			productName = "nostore (iOS)";
-			productReference = 941B03AF296FA90400CA291E /* Nostore.app */;
+			productReference = 941B03AF296FA90400CA291E /* gnostore.app */;
 			productType = "com.apple.product-type.application";
 		};
 		941B03C0296FA90400CA291E /* gnostore (macOS) */ = {
@@ -427,7 +427,7 @@
 			);
 			name = "gnostore Extension (iOS)";
 			productName = "nostore Extension (iOS)";
-			productReference = 941B03CD296FA90400CA291E /* Nostore Extension.appex */;
+			productReference = 941B03CD296FA90400CA291E /* gnostore Extension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 		941B03D6296FA90400CA291E /* gnostore Extension (macOS) */ = {
@@ -444,7 +444,7 @@
 			);
 			name = "gnostore Extension (macOS)";
 			productName = "nostore Extension (macOS)";
-			productReference = 941B03D7296FA90400CA291E /* Nostore Extension.appex */;
+			productReference = 941B03D7296FA90400CA291E /* gnostore Extension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -795,6 +795,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "gnostore Extension";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -807,8 +808,8 @@
 					"-framework",
 					SafariServices,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.nostore.Extension;
-				PRODUCT_NAME = "Nostore Extension";
+				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.gnostore.Extension;
+				PRODUCT_NAME = "gnostore Extension";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -826,6 +827,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "gnostore Extension";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -838,8 +840,8 @@
 					"-framework",
 					SafariServices,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.nostore.Extension;
-				PRODUCT_NAME = "Nostore Extension";
+				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.gnostore.Extension;
+				PRODUCT_NAME = "gnostore Extension";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -878,8 +880,8 @@
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.nostore;
-				PRODUCT_NAME = Nostore;
+				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.gnostore;
+				PRODUCT_NAME = gnostore;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -919,8 +921,8 @@
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.nostore;
-				PRODUCT_NAME = Nostore;
+				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.gnostore;
+				PRODUCT_NAME = gnostore;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -944,6 +946,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "gnostore Extension";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -956,8 +959,8 @@
 					"-framework",
 					SafariServices,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.nostore.Extension;
-				PRODUCT_NAME = "Nostore Extension";
+				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.gnostore.Extension;
+				PRODUCT_NAME = "gnostore Extension";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -977,6 +980,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "gnostore Extension";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -989,8 +993,8 @@
 					"-framework",
 					SafariServices,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.nostore.Extension;
-				PRODUCT_NAME = "Nostore Extension";
+				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.gnostore.Extension;
+				PRODUCT_NAME = "gnostore Extension";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1026,7 +1030,7 @@
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.nostore;
+				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.gnostore;
 				PRODUCT_NAME = gnostore;
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1062,7 +1066,7 @@
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.nostore;
+				PRODUCT_BUNDLE_IDENTIFIER = org.gnostr.gnostore;
 				PRODUCT_NAME = gnostore;
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
