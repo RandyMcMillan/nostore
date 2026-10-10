@@ -164,7 +164,7 @@
 		941B03AF296FA90400CA291E /* gnostore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gnostore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		941B03BC296FA90400CA291E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		941B03C1296FA90400CA291E /* gnostore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gnostore.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		941B03C8296FA90400CA291E /* nostore.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = nostore.entitlements; sourceTree = "<group>"; };
+		941B03C8296FA90400CA291E /* gnostore.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = gnostore.entitlements; sourceTree = "<group>"; };
 		941B03CD296FA90400CA291E /* gnostore Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "gnostore Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		941B03D2296FA90400CA291E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		941B03D7296FA90400CA291E /* gnostore Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "gnostore Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -335,7 +335,7 @@
 		941B03C2296FA90400CA291E /* macOS (App) */ = {
 			isa = PBXGroup;
 			children = (
-				941B03C8296FA90400CA291E /* nostore.entitlements */,
+				941B03C8296FA90400CA291E /* gnostore.entitlements */,
 			);
 			path = "macOS (App)";
 			sourceTree = "<group>";
@@ -1007,7 +1007,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "macOS (App)/nostore.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "macOS (App)/gnostore.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4.0.0;
 				DEAD_CODE_STRIPPING = YES;
@@ -1043,7 +1043,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "macOS (App)/nostore.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "macOS (App)/gnostore.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4.0.0;
 				DEAD_CODE_STRIPPING = YES;
